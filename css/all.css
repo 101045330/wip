@@ -1,0 +1,68 @@
+/*
+ * Page-Specific CSS for S-Qubed Entertainment Inner Pages
+ * This file contains styles that are unique to specific pages and
+ * do not fit into the global design system (style.css).
+ *
+ * @comment In an Angular project, these might be component-specific styles
+ * or styles loaded for specific routes.
+ */
+
+/* --- About Page Specific Styles --- */
+.about-hero-section {
+    /* If there are specific background images or overlays for the About hero */
+    /* background-image: url('../images/about-hero.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+.about-content-section .card {
+    border: 1px solid var(--color-highlight-light); /* Example border for cards */
+}
+
+.about-content-section .card-body h3 {
+    margin-bottom: var(--spacing-sm); /* Adjust heading spacing within cards */
+}
+
+.contact-form .form-control {
+    min-height: 48px; /* Ensure sufficient touch target size for inputs */
+}
+
+/* --- Blog Page Specific Styles --- */
+.blog-hero-section {
+    /* Specific styles for Blog hero if different from general hero */
+}
+
+.blog-posts-section .card-img-top {
+    height: 200px; /* Fixed height for blog post images */
+    object-fit: cover; /* Ensure images cover the area */
+}
+
+.blog-posts-section .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes "Read more" to bottom */
+}
+
+.blog-posts-section .card-text {
+    flex-grow: 1; /* Allows text to take available space */
+}
+
+/* --- Products Page Specific Styles --- */
+.products-hero-section {
+    /* Specific styles for Products hero if different from general hero */
+}
+
+.products-content-section .card-img-top {
+    height: 250px; /* Fixed height for product images */
+    object-fit: cover;
+}
+
+.products-content-section .card-body h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- Common overrides or specific adjustments not covered by design system --- */
+/* Example: Adjusting Bootstrap's default link color for certain contexts if needed */
+/* .navbar-nav .nav-link.active {
+    color: var(--color-highlight-accent) !important;
+} */

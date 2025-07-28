@@ -1,0 +1,271 @@
+/*
+ * CSS Design System for S-Qubed Entertainment Website
+ * This file defines design tokens (variables) and utility classes for layout
+ * to separate design from structure.
+ *
+ * @comment This structure facilitates easier conversion to an Angular project
+ * by providing clear separation of concerns, where variables can become SCSS variables
+ * or Angular component styles, and layout utilities can be directives or mixins.
+ */
+
+/* --- 1. Design Tokens (CSS Variables) --- */
+
+/* Colors */
+:root {
+    --color-primary-dark: #021B2E; /* Background, Header, Footer */
+    --color-secondary-dark: #38454E; /* Text/Shadow color, used for lighter dark backgrounds */
+    --color-background-base: #274A5D; /* Main background color, increased saturation */
+    --color-light-base: #F7F5E8; /* General light text color */
+    --color-highlight-light: #DCF2FD; /* Lighter highlight color for text/links */
+    --color-highlight-accent: #FED001; /* Accent highlight color for titles, primary buttons */
+
+    /* Spacing (using a modular scale) */
+    --spacing-xs: 0.25rem;  /* 4px */
+    --spacing-sm: 0.5rem;   /* 8px */
+    --spacing-md: 1rem;     /* 16px */
+    --spacing-lg: 1.5rem;   /* 24px */
+    --spacing-xl: 2rem;     /* 32px */
+    --spacing-xxl: 3rem;    /* 48px */
+    --spacing-section: 5rem; /* 80px for section padding */
+
+    /* Typography */
+    --font-family-base: 'Inter', sans-serif; /* Using Inter as per instructions */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* Border Radius */
+    --border-radius-sm: 0.25rem; /* Small rounded corners */
+    --border-radius-md: 0.5rem;  /* Medium rounded corners */
+}
+
+/* --- 2. Base Styles --- */
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-light-base);
+    background-color: var(--color-background-base);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-highlight-accent); /* Default heading color */
+    margin-bottom: var(--spacing-md);
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--color-highlight-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-highlight-accent);
+}
+
+/* --- 3. Utility Classes (Layout & Design Application) --- */
+
+/* Background Colors */
+.bg-primary-dark { background-color: var(--color-primary-dark) !important; }
+.bg-secondary-dark { background-color: var(--color-secondary-dark) !important; }
+.bg-background-base { background-color: var(--color-background-base) !important; }
+.bg-light-base { background-color: var(--color-light-base) !important; }
+.bg-highlight-light { background-color: var(--color-highlight-light) !important; }
+.bg-highlight-accent { background-color: var(--color-highlight-accent) !important; }
+
+/* Text Colors */
+.text-primary-dark { color: var(--color-primary-dark) !important; }
+.text-secondary-dark { color: var(--color-secondary-dark) !important; }
+.text-background-base { color: var(--color-background-base) !important; }
+.text-light-base { color: var(--color-light-base) !important; }
+.text-highlight-light { color: var(--color-highlight-light) !important; }
+.text-highlight-accent { color: var(--color-highlight-accent) !important; }
+
+/* Text Hover Colors */
+.text-hover-accent:hover { color: var(--color-highlight-accent) !important; }
+
+/* Borders */
+.border-highlight-light { border-color: var(--color-highlight-light) !important; }
+.border-highlight-accent { border-color: var(--color-highlight-accent) !important; }
+
+
+/* Layout Spacing (using Bootstrap's margin/padding classes where possible, or custom if needed) */
+.layout-padding-x { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+@media (min-width: 768px) {
+    .layout-padding-x { padding-left: var(--spacing-lg); padding-right: var(--spacing-lg); }
+}
+@media (min-width: 1200px) {
+    .layout-padding-x { padding-left: var(--spacing-xl); padding-right: var(--spacing-xl); }
+}
+
+.layout-section-padding {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+}
+
+/* Margin Bottom Utilities (for consistent vertical spacing) */
+.mb-spacing-xs { margin-bottom: var(--spacing-xs) !important; }
+.mb-spacing-sm { margin-bottom: var(--spacing-sm) !important; }
+.mb-spacing-md { margin-bottom: var(--spacing-md) !important; }
+.mb-spacing-lg { margin-bottom: var(--spacing-lg) !important; }
+.mb-spacing-xl { margin-bottom: var(--spacing-xl) !important; }
+.mb-spacing-xxl { margin-bottom: var(--spacing-xxl) !important; }
+
+/* Margin Top Utilities */
+.mt-spacing-xs { margin-top: var(--spacing-xs) !important; }
+.mt-spacing-sm { margin-top: var(--spacing-sm) !important; }
+.mt-spacing-md { margin-top: var(--spacing-md) !important; }
+.mt-spacing-lg { margin-top: var(--spacing-lg) !important; }
+.mt-spacing-xl { margin-top: var(--spacing-xl) !important; }
+.mt-spacing-xxl { margin-top: var(--spacing-xxl) !important; }
+
+/* Margin Left/Right Utilities */
+.me-spacing-sm { margin-right: var(--spacing-sm) !important; } /* Bootstrap's me- for margin-end */
+
+/* General Layout Utilities */
+.layout-max-width-md { max-width: 500px; } /* Example for form width */
+.layout-max-width-lg { max-width: 700px; } /* Example for wider form width */
+.layout-rounded { border-radius: var(--border-radius-md) !important; } /* Apply rounded corners */
+.layout-rounded-top {
+    border-top-left-radius: var(--border-radius-md) !important;
+    border-top-right-radius: var(--border-radius-md) !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.layout-rounded-input-group .form-control {
+    border-top-left-radius: var(--border-radius-md) !important;
+    border-bottom-left-radius: var(--border-radius-md) !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.layout-rounded-input-group .btn {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: var(--border-radius-md) !important;
+    border-bottom-right-radius: var(--border-radius-md) !important;
+}
+.layout-rounded-right {
+    border-top-right-radius: var(--border-radius-md) !important;
+    border-bottom-right-radius: var(--border-radius-md) !important;
+}
+
+
+/* --- 4. Component Specific Styles (applying design tokens) --- */
+
+/* Header */
+.main-header .navbar {
+    /* Background set by .bg-primary-dark utility */
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+}
+
+.main-header .navbar-brand {
+    font-size: 1.5rem; /* Adjust as needed */
+}
+
+.main-header .nav-link {
+    /* Color set by .text-highlight-light utility */
+    /* Hover color set by .text-hover-accent utility */
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* Hero Section (common styling for all hero sections) */
+.hero-title {
+    font-size: 3.5rem; /* Base size */
+    margin-bottom: var(--spacing-md);
+    /* Color set by .text-highlight-accent utility */
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    /* Color set by .text-highlight-light utility */
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--color-highlight-accent);
+    border-color: var(--color-highlight-accent);
+    color: var(--color-primary-dark); /* Dark text on accent button */
+    font-weight: var(--font-weight-bold);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e6b800; /* Slightly darker on hover */
+    border-color: #e6b800;
+    color: var(--color-primary-dark);
+}
+
+.btn-outline-secondary {
+    color: var(--color-highlight-light);
+    border-color: var(--color-highlight-light);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--color-highlight-light);
+    color: var(--color-primary-dark);
+}
+
+.btn-dark {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-secondary-dark);
+    color: var(--color-highlight-light);
+    padding: var(--spacing-sm) var(--spacing-md);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-highlight-accent);
+}
+
+/* Newsletter form */
+.newsletter-form .form-control {
+    /* Background set by .bg-light-base utility */
+    /* Text color set by .text-primary-dark utility */
+    /* Border color set by .border-highlight-light utility */
+    padding: var(--spacing-md);
+}
+
+.newsletter-form .form-control::placeholder {
+    color: var(--color-secondary-dark);
+}
+
+/* Footer Styling */
+.main-footer {
+    /* Background set by .bg-primary-dark utility */
+    /* Text color set by .text-highlight-light utility */
+    /* Padding set by .layout-section-padding utility */
+}
+
+.main-footer a {
+    /* Color set by .text-highlight-light utility */
+    /* Hover color set by .text-hover-accent utility */
+}
+
+.main-footer hr {
+    /* Border color set by .border-highlight-light utility */
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Responsive Adjustments (using Bootstrap's responsive classes where possible, or custom if needed) */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .layout-section-padding {
+        padding-top: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+    }
+}
